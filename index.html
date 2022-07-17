@@ -3,9 +3,36 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+	</style>
 	<title>Document</title>
 </head>
 <body>
-	
+	<div class="main">
+		<div class="main__workplace">
+			<div class="workplace__search">
+				<form>
+					<input type="text" placeholder="Search...">
+				</form>
+			</div>
+			<div class="workplace__helper">
+				<p>Redux</p>
+			</div>
+			<div class="workplace__repositories_block">
+				<div class="workplace__added_repositories">
+					<div class="info">
+						<p>Name: </p>
+						<p>Owner: </p>
+						<p>Stars: </p>
+					</div>
+					<div class="del">
+						<button><img src="del.svg"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
