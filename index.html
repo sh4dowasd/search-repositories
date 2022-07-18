@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="style.css">
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -13,19 +14,16 @@
 	<div class="main">
 		<div class="main__workplace">
 			<div class="workplace__search">
-				<form>
-					<input type="text" placeholder="Search...">
-				</form>
-			</div>
-			<div class="workplace__helper">
-				<p>Redux</p>
+				<input class="search-input" type="text" placeholder="Search...">
+				<div class="workplace__helper">
+				</div>
 			</div>
 			<div class="workplace__repositories_block">
 				<div class="workplace__added_repositories">
 					<div class="info">
-						<p>Name: </p>
-						<p>Owner: </p>
-						<p>Stars: </p>
+						<li>Name: </li>
+						<li>Owner: </li>
+						<li>Stars: </li>
 					</div>
 					<div class="del">
 						<button><img src="del.svg"></button>
@@ -34,5 +32,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="js/main.js"></script>
+	<script src="js/helpers.js"></script>
 </body>
 </html>

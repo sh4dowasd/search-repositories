@@ -23,6 +23,10 @@
       color: #c0c0c0;
       opacity: 1; }
 
+li {
+    list-style: none;
+}
+
 .main {
     display: flex;
     align-items: center;
@@ -56,19 +60,20 @@
 
 .workplace__helper {
     cursor: pointer;
-    display: flex;
     text-align: left;
+}
+
+.workplace__helper .rep {
     padding-left: 15px;
     border-radius: 3px;
     width: 500px;
     height: 45px;
     font-size: 30px;
-    margin-left: 12%;
     border: 2px solid #000000;
     background-color: #E3E3E3;
 }
 
-.workplace__helper:hover {
+.workplace__helper .rep:hover {
     background-color: #65CDF9;
 }
 
