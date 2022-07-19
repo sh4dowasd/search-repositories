@@ -7,6 +7,8 @@ class View {
         this.searchLine = document.querySelector('.workplace__search')
         this.searchInput = document.querySelector('.search-input')
         this.helpBox = document.querySelector('.workplace__helper')
+        this.reposBox = document.querySelector('.workplace__added_repository')
+        this.repBlock = document.querySelector('.workplace__repositories_block')
     }
 
     createElement(elementTag, elementClass) {
@@ -19,17 +21,25 @@ class View {
 
     createRepos(userData) {
         const reposElement = this.createElement('li', 'rep')
-        reposElement.addEventListener('click', () => this.followRepos(userData.name))
+        reposElement.addEventListener('click', () => this.followRepos(userData))
         reposElement.innerHTML = `<li class="res">${userData.name}</li>`
         this.helpBox.append(reposElement)
     }
 
-    followRepos(name) {
+    followRepos(userData) {
         const repEl = this.createElement('div', 'workplace__added_repository')
-        const data = this.api.loadReposData(name)
-            .then(res => {
-                console.log(res)
-        })
+        const repInfo = this.createElement('div', 'info')
+        const repName = this.createElement('p')
+        const repOwner = this.createElement('p')
+        const repStars = this.createElement('p')
+        const del = this.createElement('div', 'del')
+        repName.innerHTML = `Name: ${userData.name}`
+        repOwner.innerHTML = `Owner: ${userData.owner.login}`
+        repStars.innerHTML = `Stars: ${userData.stargazers_count}`
+        del.innerHTML = `<img src="del.svg">`
+        repInfo.append(repName, repOwner, repStars)
+        repEl.append(repInfo, del)
+        this.repBlock.append(repEl)
     }
 }
 

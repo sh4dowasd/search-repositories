@@ -5,15 +5,18 @@ export class Api {
         return await fetch(`${URL}search/repositories?q=${value}&per_page=5`).then(res => res)
     }
 
-    loadReposData(name) {
+    loadReposData(rep, login) {
         const urls = [
-            `${URL}repositories/${name}`,
-            `${URL}repositories/${name}/owner/login`,
-            `${URL}repositories/${name}/stargazers_count`,
+            `${URL}repos/${login}/${rep}`,
+            `${URL}repos/${login}/${rep}`,
+            `${URL}repos/${login}/${rep}`,
         ]
+
         const requests = urls.map(url => fetch(url))
         return Promise.all(requests)
-            .then(responses => Promise.all((responses.map(r => r.json))))
+            .then(responses => Promise
+                .all((responses
+                    .map(r => r.json())
+                        )))
     }
-
 }

@@ -90,17 +90,18 @@ li {
     justify-content: space-between;
 }
 
-.workplace__added_repository button {
+.del {
     padding: 22px;
     display: flex;
     background: none;
     border: none;
-}
-
-.workplace__added_repository img {
     cursor: pointer;
 }
 
 .workplace__repositories_block {
     margin-top: 23%;
+}
+
+.repo-block {
+  display: flex;
 }
