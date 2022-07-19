@@ -1,5 +1,6 @@
 import {Api} from "./api.js"
 const api = new Api()
+const delButton = document.querySelector('.del')
 
 class View {
     constructor(api) {
@@ -32,7 +33,7 @@ class View {
         const repName = this.createElement('p')
         const repOwner = this.createElement('p')
         const repStars = this.createElement('p')
-        const del = this.createElement('div', 'del')
+        const del = this.createElement('button', 'del')
         repName.innerHTML = `Name: ${userData.name}`
         repOwner.innerHTML = `Owner: ${userData.owner.login}`
         repStars.innerHTML = `Stars: ${userData.stargazers_count}`
@@ -40,6 +41,11 @@ class View {
         repInfo.append(repName, repOwner, repStars)
         repEl.append(repInfo, del)
         this.repBlock.append(repEl)
+        const handleRemove = e => {
+            const item = e.target.closest('.workplace__added_repository');
+            item.parentElement.removeChild(item);
+          };
+        del.addEventListener('click', handleRemove);
     }
 }
 
