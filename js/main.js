@@ -22,7 +22,11 @@ class View {
 
     createRepos(userData) {
         const reposElement = this.createElement('li', 'rep')
-        reposElement.addEventListener('click', () => this.followRepos(userData))
+        reposElement.addEventListener('click', () => {
+             this.followRepos(userData)
+             this.clearUsers()
+             this.searchInput.value = ''
+        })
         reposElement.innerHTML = `<li class="res">${userData.name}</li>`
         this.helpBox.append(reposElement)
     }
@@ -42,10 +46,14 @@ class View {
         repEl.append(repInfo, del)
         this.repBlock.append(repEl)
         const handleRemove = e => {
-            const item = e.target.closest('.workplace__added_repository');
-            item.parentElement.removeChild(item);
+            const item = e.target.closest('.workplace__added_repository')
+            item.parentElement.removeChild(item)
           };
-        del.addEventListener('click', handleRemove);
+        del.addEventListener('click', handleRemove)
+    }
+
+    clearUsers() {
+        this.helpBox.innerHTML = ''
     }
 }
 
