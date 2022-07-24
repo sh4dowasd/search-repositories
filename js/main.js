@@ -10,6 +10,7 @@ class View {
         this.helpBox = document.querySelector('.workplace__helper')
         this.reposBox = document.querySelector('.workplace__added_repository')
         this.repBlock = document.querySelector('.workplace__repositories_block')
+        this.arr = []
     }
 
     createElement(elementTag, elementClass) {
@@ -23,9 +24,13 @@ class View {
     createRepos(userData) {
         const reposElement = this.createElement('li', 'rep')
         reposElement.addEventListener('click', () => {
-             this.followRepos(userData)
-             this.clearUsers()
-             this.searchInput.value = ''
+            if (!this.arr.includes(userData.id)) {
+                this.arr.push(userData.id)
+                this.followRepos(userData)
+                this.clearUsers()
+            }
+            this.clearUsers()
+            this.searchInput.value = ''
         })
         reposElement.innerHTML = `<li class="res">${userData.name}</li>`
         this.helpBox.append(reposElement)
